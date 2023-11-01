@@ -6,24 +6,25 @@ public class Nomina {
 
     private ArrayList<Empleado> empleadosCamilo;
 
-    public  Nomina() {
-        empleadosCamilo = new ArrayList<>();
+    public  Nomina(ArrayList<Empleado> empleados) {
+        this.empleadosCamilo = new ArrayList<>();
     }
 
 
     public void calcularNominaMorales() {
         for (Empleado empleado : empleadosCamilo) {
-            empleado.calcularSalarioMorales();
+            double salario = empleado.calcularSalarioMorales();
+            System.out.println("El salario de " + empleado.getNombreCamilo() + " es: $" + salario);
         }
     }
 
 
 
     public void listarDirectosMorales() {
-        System.out.println("Empleados Directos:");
+        System.out.println("Empleados Directos: ");
         for (Empleado empleado : empleadosCamilo) {
             if (empleado instanceof Directo) {
-                System.out.println(empleado);
+                System.out.println(empleado.getNombreCamilo());
             }
         }
     }
@@ -31,10 +32,10 @@ public class Nomina {
 
 
     public void listarFreelanceMorales() {
-        System.out.println("Freelancers:");
+        System.out.println("Empleados Freelance: ");
         for (Empleado empleado : empleadosCamilo) {
             if (empleado instanceof Freelance) {
-                System.out.println(empleado);
+                System.out.println(empleado.getNombreCamilo());
             }
         }
     }
@@ -42,10 +43,10 @@ public class Nomina {
 
 
     public void listarPromotoresMorales() {
-        System.out.println("Promotores:");
+        System.out.println("Empleados Promotores: ");
         for (Empleado empleado : empleadosCamilo) {
             if (empleado instanceof Promotor) {
-                System.out.println(empleado);
+                System.out.println(empleado.getNombreCamilo());
             }
         }
     }
